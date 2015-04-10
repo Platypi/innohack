@@ -65,6 +65,8 @@
     <TypeScriptCompile Include="services\factual\ifactual.service.d.ts" />
     <TypeScriptCompile Include="viewcontrols\base\base.viewcontrol.ts" />
     <TypeScriptCompile Include="viewcontrols\home\home.viewcontrol.ts" />
+    <TypeScriptCompile Include="viewcontrols\login\login.viewcontrol.ts" />
+    <TypeScriptCompile Include="viewcontrols\profile\profile.viewcontrol.ts" />
     <TypeScriptCompile Include="_references.d.ts" />
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +75,8 @@
     <Content Include="common\css\main.less" />
     <Content Include="common\css\mixins\mixins.less" />
     <Content Include="common\css\variables\variables.less" />
+    <Content Include="viewcontrols\login\login.viewcontrol.html" />
+    <Content Include="viewcontrols\profile\profile.viewcontrol.html" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />

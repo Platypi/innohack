@@ -24,3 +24,4 @@ require('./viewcontrols/base/base.viewcontrol');
 require('./viewcontrols/home/home.viewcontrol');
 require('./viewcontrols/login/login.viewcontrol');
 require('./viewcontrols/profile/profile.viewcontrol');
+require('./viewcontrols/providers/providers.viewcontrol');

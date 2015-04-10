@@ -17,9 +17,8 @@ class FactualService extends BaseService {
         if (endpoint.length > 0 && endpoint[0] !== '/') {
             endpoint = '/' + endpoint;
         }
-        var url = this.baseUrl + endpoint + this.processFilter(filter);
 
-        console.log(url);
+        var url = this.baseUrl + endpoint + this.processFilter(filter);
 
         return this._http.json<any>({
             url: url,

@@ -25,3 +25,30 @@ build/Release
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
+
+[Dd]ebug/
+[Rr]elease/
+x64/
+build/
+[Bb]in/
+[Oo]bj/
+
+*.js
+*.map
+*.css
+!Gruntfile.js
+!index.js
+
+.DS_Store
+.idea/
+
+typings/
+public/lib/
+
+
+*.suo
+*.user
+*.sln.docstates
+.tscache/
+*.tmp.txt
+*.sublime-workspace

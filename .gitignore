@@ -45,7 +45,8 @@ build/
 typings/
 public/lib/
 
-
+*.sublime-project
+*.sublime-workspace
 *.suo
 *.user
 *.sln.docstates

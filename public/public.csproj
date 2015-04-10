@@ -54,13 +54,13 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\app.ts" />
     <TypeScriptCompile Include="common\controls\base\base.templatecontrol.ts" />
+    <TypeScriptCompile Include="common\injectables\facebook\facebook.injectable.ts" />
     <TypeScriptCompile Include="factories\base\base.factory.ts" />
     <TypeScriptCompile Include="factories\base\ibase.factory.d.ts" />
     <TypeScriptCompile Include="factories\server\iserver.factory.d.ts" />
     <TypeScriptCompile Include="main.ts" />
     <TypeScriptCompile Include="repositories\base\base.repository.ts" />
     <TypeScriptCompile Include="services\base\base.service.ts" />
-    <TypeScriptCompile Include="services\factual\factual.service.d.ts" />
     <TypeScriptCompile Include="services\factual\factual.service.ts" />
     <TypeScriptCompile Include="viewcontrols\base\base.viewcontrol.ts" />
     <TypeScriptCompile Include="viewcontrols\home\home.viewcontrol.ts" />
@@ -80,7 +80,6 @@
   <ItemGroup>
     <Folder Include="common\assets\fonts\" />
     <Folder Include="common\assets\img\" />
-    <Folder Include="common\injectables\" />
     <Folder Include="lib\" />
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">

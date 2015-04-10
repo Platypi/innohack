@@ -12,3 +12,5 @@ require('platypusui');
 require('./app/app');
 
 require('./services/factual/factual.service');
+
+require('./common/injectables/facebook/ifacebook.injectable');

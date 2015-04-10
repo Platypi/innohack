@@ -1,7 +1,8 @@
 /// <reference path='../_references.d.ts' />
 declare var StatusBar: { hide(): void; };
 import plat = require('platypus');
-import HomeViewControl = require('../viewcontrols/home/home.viewcontrol');
+import LoginViewControl = require('../viewcontrols/login/login.viewcontrol');
+import ProfileViewControl = require('../viewcontrols/profile/profile.viewcontrol');
 
 export class App extends plat.App {
     /**
@@ -12,7 +13,8 @@ export class App extends plat.App {
         super();
 
         router.configure([
-            { pattern: '', view: HomeViewControl }
+            { pattern: '', view: LoginViewControl },
+            { pattern: 'profile', view: ProfileViewControl }
         ]);
     }
 

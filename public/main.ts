@@ -10,3 +10,5 @@ require('platypusui');
 
 // app
 require('./app/app');
+
+require('./services/factual/factual.service');

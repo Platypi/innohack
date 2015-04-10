@@ -60,6 +60,8 @@
     <TypeScriptCompile Include="main.ts" />
     <TypeScriptCompile Include="repositories\base\base.repository.ts" />
     <TypeScriptCompile Include="services\base\base.service.ts" />
+    <TypeScriptCompile Include="services\factual\factual.service.d.ts" />
+    <TypeScriptCompile Include="services\factual\factual.service.ts" />
     <TypeScriptCompile Include="viewcontrols\base\base.viewcontrol.ts" />
     <TypeScriptCompile Include="viewcontrols\home\home.viewcontrol.ts" />
     <TypeScriptCompile Include="_references.d.ts" />

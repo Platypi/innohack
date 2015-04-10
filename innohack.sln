@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "public", "public/public.csproj", "{2C85B14E-8185-4D7C-9CD4-7AA352FD0A19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "public", "public\public.csproj", "{2C85B14E-8185-4D7C-9CD4-7AA352FD0A19}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{65072F3C-619A-4756-9BFF-B0EB620E0526}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		Gruntfile.js = Gruntfile.js
+		index.js = index.js
+		package.json = package.json
+		tsd.public.json = tsd.public.json
+		tslint.json = tslint.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

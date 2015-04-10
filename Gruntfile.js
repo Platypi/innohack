@@ -160,7 +160,8 @@ module.exports = function (grunt) {
                     plugins: [
                         'network-information',
                         'splashscreen',
-                        'org.apache.cordova.statusbar'
+                        'org.apache.cordova.statusbar',
+                        'https://github.com/ccsoft/cordova-facebook'
                     ]
                 }
             },

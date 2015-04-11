@@ -9,7 +9,8 @@
     "prepublish": "./node_modules/.bin/grunt install --force"
   },
   "dependencies": {
-    "font-awesome": "^4.3.0"
+    "font-awesome": "^4.3.0",
+    "moment": "^2.10.2"
   },
   "devDependencies": {
     "browserify": "latest",

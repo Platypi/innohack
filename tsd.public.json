@@ -16,6 +16,9 @@
         },
         "underscore/underscore.d.ts": {
             "commit": "b6970132c4ddf4b0ffe7952e9e3b08e23f96ea8f"
+        },
+        "moment/moment.d.ts": {
+            "commit": "d5f92f93bdb49f332fa662ff1d0cc8700f02e4dc"
         }
     }
 }

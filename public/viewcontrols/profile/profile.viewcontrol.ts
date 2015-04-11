@@ -4,34 +4,33 @@ import plat = require('platypus');
 import ParseRepository = require('../../repositories/parse/parse.repository');
 import BaseViewControl = require('../../viewcontrols/base/base.viewcontrol');
 
+var moment = require('moment');
+
 class ProfileViewControl extends BaseViewControl {
     templateString: string = require('./profile.viewcontrol.html');
     
     context = {
         currentStep: 0,
         gender: <string>null,
-        dob: {
-            month: <number>null,
-            date: <number>null,
-            year: <number>null
-        },
-        months: [
-            { name: 'January', value: 1 },
-            { name: 'February', value: 2 },
-            { name: 'March', value: 3 },
-            { name: 'April', value: 4 },
-            { name: 'May', value: 5 },
-            { name: 'June', value: 6 },
-            { name: 'July', value: 7 },
-            { name: 'August', value: 8 },
-            { name: 'September', value: 9 },
-            { name: 'October', value: 10 },
-            { name: 'November', value: 11 },
-            { name: 'December', value: 12 },
-        ],
         conditions: <Array<models.ICondition>>[],
         services: <Array<models.IService>>[],
-        gender: <string>null
+        months: [
+            { name: 'January', value: 0 },
+            { name: 'February', value: 1 },
+            { name: 'March', value: 2 },
+            { name: 'April', value: 3 },
+            { name: 'May', value: 4 },
+            { name: 'June', value: 5 },
+            { name: 'July', value: 6 },
+            { name: 'August', value: 7 },
+            { name: 'September', value: 8 },
+            { name: 'October', value: 9 },
+            { name: 'November', value: 10 },
+            { name: 'December', value: 11 },
+        ],
+        years: <Array<number>>[],
+        days: <Array<number>>[],
+        dob: moment()
     };
 
     // templates bind to
@@ -78,6 +77,7 @@ class ProfileViewControl extends BaseViewControl {
     }
 
     initialize() {
+        this.setYearContext();
         this.parse.getConditions().then((conditions) => {
             this.context.conditions = conditions;
         });
@@ -123,10 +123,52 @@ class ProfileViewControl extends BaseViewControl {
     insertTemplate(template: DocumentFragment, el: Element) {
         this.dom.insertBefore(el, template);
     }
+
+    setYearContext() {
+        var context = this.context;
+        var dob = context.dob;
+        var currentYear = context.dob.year();
+        var baseYear = currentYear - 100;
+        var i = 0;
+
+        while(currentYear >= baseYear) {
+            context.years.push(baseYear);
+            baseYear++;
+        }
+    }
+
+    setDayContext(month: number) {
+        var context = this.context;
+        var dob = context.dob;
+        var lastDay = dob.endOf('month').date();
+        var firstDay = 1;
+
+        context.days = [];
+
+        while(lastDay >= firstDay) {
+            context.days.push(firstDay);
+            firstDay++;
+        }
+    }
+
+    monthChosen(ev: any) {
+        var month = ev.target.selectedOptions[0].index - 1;
+        this.context.dob.month(month);
+        this.setDayContext(month);
+    }
+
+    yearChosen(ev: any) {
+        this.context.dob.year(ev.target.selectedOptions[0].value);
+    }
+
+    dayChosen(ev: any) {
+        this.context.dob.date(ev.target.selectedOptions[0].value);
+    }
 }
 
 plat.register.viewControl('profile-vc', ProfileViewControl, [
-    ParseRepository
+    ParseRepository,
+    moment
 ]);
 
 export = ProfileViewControl;

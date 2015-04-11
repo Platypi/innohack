@@ -10,11 +10,14 @@ class ProfileViewControl extends BaseViewControl {
     context = {
         currentStep: 0,
         conditions: <Array<models.ICondition>>[],
-        services: <Array<models.IService>>[]
+        services: <Array<models.IService>>[],
+        gender: <string>null
     };
 
     // templates bind to
     templateTarget: plat.controls.INamedElement<HTMLDivElement, any>;
+
+    // order: gender, dob, zip, insurance, meds, conditions
 
     // templates (in order of appearance!)
     templates = [
@@ -26,6 +29,11 @@ class ProfileViewControl extends BaseViewControl {
         {
             name: 'dob',
             template: require('./templates/dob.template.html'),
+            selected: false
+        },
+        {
+            name: 'zip',
+            template: require('./templates/zip.template.html'),
             selected: false
         },
         {
@@ -44,9 +52,11 @@ class ProfileViewControl extends BaseViewControl {
             selected: false
         }
     ];
+
     constructor(private parse: ParseRepository) {
         super();
     }
+
     initialize() {
         this.parse.getConditions().then((conditions) => {
             this.context.conditions = conditions;
@@ -55,6 +65,11 @@ class ProfileViewControl extends BaseViewControl {
             this.context.services = services;
         });
     }
+
+    setGender(gender: string) {
+        this.context.gender = gender;
+    }
+
     fetchTemplates() {
         var serialize = this.dom.serializeHtml;
         

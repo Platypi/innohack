@@ -7,8 +7,45 @@
 
     .main {
         height: 100%;
+        padding: 0 @container-horizontal;
         .flex-vertical-center();
         .justify-content(center);
         .flex-direction(column);
+
+        &.profile {
+            background-color: @primary-blue;
+            text-align: center;
+
+            h1,h2,h3,h4,h5, p {
+                color: lighten(@primary-blue, 25%);
+                text-shadow: 1px 1px 0px darken(@primary-blue, 5%);
+            }
+
+            p {
+                padding-bottom: 1em;
+                font-size: 1.2em;
+            }
+
+            .justify-content(flex-start);
+
+            .icon-container {
+                .flex-basis(2);
+                .flexbox();
+                .flex-direction(column);
+                .justify-content(flex-end);
+                .align-items(center);
+                height: 20vh;
+                padding-bottom: 1em;
+
+                .profile-icon {
+                    width: 12em;
+                }
+            }
+        }
+
+        &.login {
+            background-color: @primary-blue;
+            text-align: center;
+        }
     }
 }

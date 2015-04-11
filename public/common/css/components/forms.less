@@ -10,14 +10,21 @@
     .input-group {
         width: 100%;
         max-width: 30em;
+        margin: 0 auto;
         background-color: @white;
         border-radius: 4px;
         border: 2px solid @accent-blue;
 
-        .radio {
+        & > .input-control {
+            width: 100%;
             height: @navbar-height;
-            border-bottom: 2px solid @accent-blue;
+            color: @form-font-color;
             padding: 0 @container-horizontal;
+            border: 0;
+            border-bottom: 2px solid @accent-blue;
+        }
+
+        .radio {
             .flex-vertical-center();
             .justify-content(space-between);
 
@@ -32,8 +39,8 @@
             }
         }
 
-        .radio + .radio {
-            border-bottom-width: 0;
+        & [type="text"] {
+            font-size: 1.1em;
         }
     }
 }

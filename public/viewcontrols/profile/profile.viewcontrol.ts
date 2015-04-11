@@ -1,8 +1,9 @@
 ﻿/// <reference path="../../_references.d.ts" />
 
 import plat = require('platypus');
-import ParseRepository = require('../../repositories/parse/parse.repository');
 import BaseViewControl = require('../../viewcontrols/base/base.viewcontrol');
+import ParseRepository = require('../../repositories/parse/parse.repository');
+import InsuranceService = require('../../services/local/local.service');
 
 var moment = require('moment');
 
@@ -11,9 +12,20 @@ class ProfileViewControl extends BaseViewControl {
     
     context = {
         currentStep: 0,
+        user: {
+            gender: <string>null,
+            zipCode: <string>null,
+            dob: moment(),
+            insurance: {
+                health: {},
+                dental: {},
+                vision: {}
+            }
+        },
         gender: <string>null,
         conditions: <Array<models.ICondition>>[],
         services: <Array<models.IService>>[],
+        insurance: <Array<string>>[],
         months: [
             { name: 'January', value: 0 },
             { name: 'February', value: 1 },
@@ -41,6 +53,16 @@ class ProfileViewControl extends BaseViewControl {
     // templates (in order of appearance!)
     templates = [
         {
+            name: 'insurance',
+            template: require('./templates/insurance.template.html'),
+            selected: false
+        },
+        {
+            name: 'zip',
+            template: require('./templates/zip.template.html'),
+            selected: false
+        },
+        {
             name: 'dob',
             template: require('./templates/dob.template.html'),
             selected: false
@@ -50,16 +72,7 @@ class ProfileViewControl extends BaseViewControl {
             template: require('./templates/gender.template.html'),
             selected: true
         },
-        {
-            name: 'zip',
-            template: require('./templates/zip.template.html'),
-            selected: false
-        },
-        {
-            name: 'insurance',
-            template: require('./templates/insurance.template.html'),
-            selected: false
-        },
+        
         {
             name: 'medications',
             template: require('./templates/medications.template.html'),
@@ -72,17 +85,23 @@ class ProfileViewControl extends BaseViewControl {
         }
     ];
 
-    constructor(private parse: ParseRepository) {
+    constructor(private parse: ParseRepository,
+        private insurance: InsuranceService) {
         super();
     }
 
     initialize() {
+        var context = this.context;
+
         this.setYearContext();
         this.parse.getConditions().then((conditions) => {
-            this.context.conditions = conditions;
+            context.conditions = conditions;
         });
         this.parse.getServices().then((services) => {
-            this.context.services = services;
+            context.services = services;
+        });
+        this.insurance.getInsuranceProviders().then((result) => {
+            context.insurance = result.response.providers;
         });
     }
 
@@ -126,8 +145,8 @@ class ProfileViewControl extends BaseViewControl {
 
     setYearContext() {
         var context = this.context;
-        var dob = context.dob;
-        var currentYear = context.dob.year();
+        var dob = context.user.dob;
+        var currentYear = dob.year();
         var baseYear = currentYear - 100;
         var i = 0;
 
@@ -139,7 +158,7 @@ class ProfileViewControl extends BaseViewControl {
 
     setDayContext(month: number) {
         var context = this.context;
-        var dob = context.dob;
+        var dob = context.user.dob;
         var lastDay = dob.endOf('month').date();
         var firstDay = 1;
 
@@ -153,22 +172,22 @@ class ProfileViewControl extends BaseViewControl {
 
     monthChosen(ev: any) {
         var month = ev.target.selectedOptions[0].index - 1;
-        this.context.dob.month(month);
+        this.context.user.dob.month(month);
         this.setDayContext(month);
     }
 
     yearChosen(ev: any) {
-        this.context.dob.year(ev.target.selectedOptions[0].value);
+        this.context.user.dob.year(ev.target.selectedOptions[0].value);
     }
 
     dayChosen(ev: any) {
-        this.context.dob.date(ev.target.selectedOptions[0].value);
+        this.context.user.dob.date(ev.target.selectedOptions[0].value);
     }
 }
 
 plat.register.viewControl('profile-vc', ProfileViewControl, [
     ParseRepository,
-    moment
+    InsuranceService
 ]);
 
 export = ProfileViewControl;

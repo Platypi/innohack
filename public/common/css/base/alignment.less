@@ -5,6 +5,14 @@
 & {
     #platui > #mixins;
 
+    html {
+        box-sizing: border-box;
+    }
+    
+    *, *:before, *:after {
+        box-sizing: inherit;
+    }
+
     .main {
         height: 100%;
         padding: 0 @container-horizontal;
@@ -35,7 +43,7 @@
                 .justify-content(flex-end);
                 .align-items(center);
                 height: 20vh;
-                padding-bottom: 1em;
+                padding: 1em 0;
 
                 .profile-icon {
                     width: 12em;

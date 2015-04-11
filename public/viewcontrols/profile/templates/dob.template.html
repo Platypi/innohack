@@ -4,13 +4,13 @@
 <h1>Date of Birth</h1>
 <p>Older cars require more maintenance. Same goes for humans.</p>
 <div class="input-group">
-    <plat-select plat-context="years" plat-change="yearChosen" plat-options="{ default: { value: '0', textContent: 'Year' } }">
+    <plat-select plat-context="years" class="input-control" plat-change="yearChosen" plat-options="{ default: { value: '0', textContent: 'Year' } }">
     <option value="{{@context}}">{{@context}}</option>
     </plat-select>
-    <plat-select plat-context="months" plat-change="monthChosen" plat-options="{ default: { value: '0', textContent: 'Month' } }">
+    <plat-select plat-context="months" class="input-control" plat-change="monthChosen" plat-options="{ default: { value: '0', textContent: 'Month' } }">
         <option value="{{value}}">{{name}}</option>
     </plat-select>
-    <plat-select plat-context="days" plat-change="dayChosen" plat-options="{ default: { value: '0', textContent: 'Day' } }">
+    <plat-select plat-context="days" class="input-control" plat-change="dayChosen" plat-options="{ default: { value: '0', textContent: 'Day' } }">
         <option value="{{@context}}">{{@context}}</option>
     </plat-select>
 </div>

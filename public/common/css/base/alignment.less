@@ -1,33 +1,14 @@
-﻿/*
-    ALIGNMENT
-
-    Holds all root helper classes for alignment and sizing
-*/
-
-/* example
-body {
-    font-size: 24px;
-}
+﻿@import '../variables/variables';
+@import '../mixins/mixins';
+@import (reference) '../../../../node_modules/platypusui/platypus';
 
 & {
-    #platui > #media;
+    #platui > #mixins;
 
-    .media-phablet({
-        body {
-            font-size: 3em;    
-        }    
-    });
-
-    .media-tablet({
-        body {
-            font-size: 4em;    
-        }    
-    });
-
-    .media-desktop({
-        body {
-            font-size: 6em;    
-        }    
-    });
+    .main {
+        height: 100%;
+        .flex-vertical-center();
+        .justify-content(center);
+        .flex-direction(column);
+    }
 }
-*/

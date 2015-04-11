@@ -8,9 +8,17 @@
     html {
         box-sizing: border-box;
     }
+
+    body {
+        background-color: @primary-blue;
+    }
     
     *, *:before, *:after {
         box-sizing: inherit;
+    }
+
+    [plat-control="plat-viewcontrol"] {
+        background-color: @primary-blue;
     }
 
     .main {
@@ -19,6 +27,17 @@
         .flex-vertical-center();
         .justify-content(center);
         .flex-direction(column);
+
+        &.login {
+            .facebook-icon {
+                width: 15em;
+                max-width: 70%;
+            }
+        }
+
+        &.procedure {
+            padding: 0;
+        }
 
         &.schedule {
             .justify-content(flex-start);

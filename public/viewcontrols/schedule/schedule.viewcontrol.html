@@ -1,16 +1,18 @@
 <div class="main schedule">
 	<ul plat-control="plat-foreach" plat-context="services" class="schedule">
-		<li>
-			<div class="procedure">{{name}}</span>
-			<div class="frequency">{{ intervalcount === 1 ? interval + 'ly' : 'every ' + intervalcount + ' ' + interval + 's' }}</span>
+		<li class="{{ 'blue' + (@index + 1) }}" plat-tap="viewProcedure(@context)">
+			<div class="procedure">{{name}}</div>
+			<div class="frequency">{{ intervalcount === 1 ? interval + 'ly' : 'every ' + intervalcount + ' ' + interval + 's' }}</div>
 		</li>
 	</ul>
 </div>
 <div class="navbar">
     <span class="navbar-action navbar-action-left">
-        <i class="fa fa-arrow-left"></i>
+        <plat-drawer-controller>
+            <i class="fa fa-navicon"></i>
+        </plat-drawer-controller>
     </span>
     <span class="navbar-action navbar-action-right">
-        <i class="fa fa-arrow-right"></i>
+        <i class="fa fa-filter"></i>
     </span>
 </div>

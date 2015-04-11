@@ -4,6 +4,7 @@ import plat = require('platypus');
 
 import BaseViewControl = require('../../viewcontrols/base/base.viewcontrol');
 import UserRepository = require('../../repositories/user/user.repository');
+import ProcedureViewControl = require('../../viewcontrols/procedure/procedure.viewcontrol');
 
 class ScheduleViewControl extends BaseViewControl {
     templateString: string = require('./schedule.viewcontrol.html');
@@ -32,7 +33,7 @@ class ScheduleViewControl extends BaseViewControl {
                 intervalcount: 6
             }, {
                 gender: "Female",
-                name: "Mamagram",
+                name: "Mammogram",
                 description: "",
                 interval: "year",
                 intervalcount: 1
@@ -44,6 +45,26 @@ class ScheduleViewControl extends BaseViewControl {
             }
         ]
     };
+
+    constructor(private userRepository: UserRepository) {
+        super();
+    }
+
+    initialize() {
+        this.context.user = this.userRepository.fetchUser();
+    }
+
+    viewProcedure(procedure: models.IService) {
+        this.userRepository.storeUser(this.utils.extend({}, this.context.user, {
+            selectedProcedure: procedure
+        }));
+
+        this.navigator.navigate(ProcedureViewControl, {
+            parameters: {
+                id: this.context.user.zip
+            }
+        });
+    }
 }
 
 plat.register.viewControl('schedule-vc', ScheduleViewControl, [

@@ -1,0 +1,26 @@
+@import '../variables/variables';
+@import '../mixins/mixins';
+@import (reference) '../../../../node_modules/platypusui/platypus';
+
+& {
+    #platui > #mixins;
+
+    
+    [plat-control="plat-drawer"] {
+        background-color: @navbar-grey;
+    }
+
+    ul.drawer {
+        margin: 0;
+        padding: 0;
+
+        & > li {
+            height: @navbar-height;
+            .flex-vertical-center();
+            padding-left: @container-horizontal;
+            background-color: #888888;
+            border-bottom: 1px solid @navbar-grey;
+        }
+    }
+
+}

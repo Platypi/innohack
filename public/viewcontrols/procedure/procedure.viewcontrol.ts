@@ -3,7 +3,7 @@
 import plat = require('platypus');
 
 import BaseViewControl = require('../../viewcontrols/base/base.viewcontrol');
-import FactualRepository = require('../../services/factual/factual.service');
+import FactualRepository = require('../../repositories/factual/factual.repository');
 
 class ProcedureViewControl extends BaseViewControl {
     /**

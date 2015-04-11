@@ -75,6 +75,12 @@
                 "name": "base",
                 "type": "repository",
                 "path": "repositories\\base"
+            },
+            {
+                "name": "factual",
+                "type": "repository",
+                "path": "repositories\\factual",
+                "registeredName": "factual-repo"
             }
         ],
         "factories": [

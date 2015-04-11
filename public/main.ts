@@ -18,3 +18,5 @@ require('./services/factual/factual.service');
 
 // injectables
 require('./common/injectables/facebook/facebook.injectable');
+
+require('./repositories/factual/factual.repository');

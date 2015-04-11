@@ -1,14 +1,16 @@
 ﻿/// <reference path="../../_references.d.ts" />
 
 import plat = require('platypus');
-
+import ParseRepository = require('../../repositories/parse/parse.repository');
 import BaseViewControl = require('../../viewcontrols/base/base.viewcontrol');
 
 class ProfileViewControl extends BaseViewControl {
     templateString: string = require('./profile.viewcontrol.html');
     
     context = {
-        currentStep: 0
+        currentStep: 0,
+        conditions: <Array<models.ICondition>>[],
+        services: <Array<models.IService>>[]
     };
 
     // templates bind to
@@ -42,7 +44,17 @@ class ProfileViewControl extends BaseViewControl {
             selected: false
         }
     ];
-
+    constructor(private parse: ParseRepository) {
+        super();
+    }
+    initialize() {
+        this.parse.getConditions().then((conditions) => {
+            this.context.conditions = conditions;
+        });
+        this.parse.getServices().then((services) => {
+            this.context.services = services;
+        });
+    }
     fetchTemplates() {
         var serialize = this.dom.serializeHtml;
         
@@ -78,6 +90,8 @@ class ProfileViewControl extends BaseViewControl {
     }
 }
 
-plat.register.viewControl('profile-vc', ProfileViewControl);
+plat.register.viewControl('profile-vc', ProfileViewControl, [
+    ParseRepository
+]);
 
 export = ProfileViewControl;

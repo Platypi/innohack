@@ -29,6 +29,7 @@
         "grunt-ts": "latest",
         "grunt-tslint": "latest",
         "morgan": "latest",
+        "parse": "latest",
         "platypus": "latest",
         "platypusui": "latest",
         "serve-static": "latest",

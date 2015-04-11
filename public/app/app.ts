@@ -1,10 +1,12 @@
 /// <reference path='../_references.d.ts' />
 declare var StatusBar: { hide(): void; };
+declare var parsePlugin: any;
 import plat = require('platypus');
 import LoginViewControl = require('../viewcontrols/login/login.viewcontrol');
 import ProfileViewControl = require('../viewcontrols/profile/profile.viewcontrol');
 import ScheduleViewControl = require('../viewcontrols/schedule/schedule.viewcontrol');
 import ProcedureViewControl = require('../viewcontrols/procedure/procedure.viewcontrol');
+import ProvidersViewControl = require('../viewcontrols/providers/providers.viewcontrol');
 
 export class App extends plat.App {
     /**
@@ -13,12 +15,12 @@ export class App extends plat.App {
      */
     constructor(router: plat.routing.Router) {
         super();
-
         router.configure([
             { pattern: '', view: LoginViewControl },
             { pattern: 'profile', view: ProfileViewControl },
             { pattern: 'schedule', view: ScheduleViewControl },
-            { pattern: 'procedure', view: ProcedureViewControl }
+            { pattern: 'procedure', view: ProcedureViewControl },
+            { pattern: 'providers/:id', view: ProvidersViewControl }
         ]);
     }
 
@@ -30,6 +32,29 @@ export class App extends plat.App {
         try {
             StatusBar.hide();
         } catch(e) { }
+
+        try {
+            parsePlugin.initialize("sewoswMeS3nxesYBdG6I9MVWT3xuwu2seEFdfLCF", () => {
+                parsePlugin.subscribe('SampleChannel', () => {
+                    parsePlugin.getInstallationId((id:any) => {
+                         var install_data = {
+                            installation_id: id,
+                            channels: ['SampleChannel']
+                         }
+                    }, function(e:any) {
+                        console.log(e);
+                    });
+                }, function(e:any) {
+                    console.log(e);
+                }); 
+            }, (e:any) => {
+                
+                console.log(e);
+            });
+
+        } catch (e) { 
+            console.log(e); 
+        }
     }
 
     /**

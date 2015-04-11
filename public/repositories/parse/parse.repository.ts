@@ -64,6 +64,9 @@ class ParseRepository extends BaseRepository {
 
 		});
 	}
+	setReminder() {
+		
+	}
 }
 
 plat.register.injectable('parse', ParseRepository, 

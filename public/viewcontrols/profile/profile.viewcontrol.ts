@@ -27,6 +27,11 @@ class ProfileViewControl extends BaseViewControl {
             selected: false
         },
         {
+            name: 'zip',
+            template: require('./templates/zip.template.html'),
+            selected: false
+        },
+        {
             name: 'insurance',
             template: require('./templates/insurance.template.html'),
             selected: false

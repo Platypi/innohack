@@ -1,5 +1,14 @@
-﻿<div class="navigate">
-    <span class="arrow arrow-back" plat-tap="goBack" plat-visible="{{ currentStep > 0 }}">back</span>
-    <span class="arrow arrow-forward" plat-tap="goForward" plat-visible="{{ currentStep < 4 }}">forward</span>
+﻿<div class="main profile">
+    <div class="template-target" plat-name="templateTarget"></div>
 </div>
-<div class="template-target" plat-name="templateTarget"></div>
+<div class="navbar">
+    <span class="navbar-action navbar-action-left" plat-tap="goBack" plat-visible="{{ currentStep > 0 }}">
+        <i class="fa fa-arrow-left"></i>
+    </span>
+    <span class="navbar-action navbar-action-right" plat-tap="goForward" plat-visible="{{ currentStep < 5 }}">
+        <i class="fa fa-arrow-right"></i>
+    </span>
+    <span class="navbar-action navbar-action-success" plat-tap="goForward" plat-visible="{{ currentStep === 5 }}">
+        <i class="fa fa-check"></i>
+    </span>
+</div>

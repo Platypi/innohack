@@ -1,0 +1,42 @@
+@import '../variables/variables';
+@import '../mixins/mixins';
+@import (reference) '../../../../node_modules/platypusui/platypus';
+
+& {
+    #platui > #mixins;
+
+    .navbar {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 4em;
+        background-color: @navbar-grey;
+        .flexbox();
+        .justify-content(flex-end);
+
+        & > .navbar-action {
+            height: 100%;
+            font-size: 2em;
+            color: @white;
+            .flex-vertical-center();
+            .flex-grow(1);
+            .justify-content(center);
+
+            &:active, &:hover {
+                background-color: lighten(@navbar-grey, 5%);
+            }
+
+            &.navbar-action-success {
+                background-color: @green;
+            }
+
+            &.navbar-action-left {
+                
+            }
+
+            &.navbar-action-right {
+
+            }
+        }
+    }
+}

@@ -7,8 +7,19 @@
 
     .main {
         height: 100%;
+        padding: 0 @container-horizontal;
         .flex-vertical-center();
         .justify-content(center);
         .flex-direction(column);
+
+        &.profile {
+            background-color: @primary-blue;
+            text-align: center;
+        }
+
+        &.login {
+            background-color: @primary-blue;
+            text-align: center;
+        }
     }
 }

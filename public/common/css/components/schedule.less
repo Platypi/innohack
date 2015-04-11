@@ -1,0 +1,23 @@
+@import '../variables/variables';
+@import '../mixins/mixins';
+@import (reference) '../../../../node_modules/platypusui/platypus';
+
+& {
+    #platui > #mixins;
+
+    .schedule {
+        width: 100%;
+        padding: 0;
+        list-style: none;
+
+        & > li {
+            height: 3em;
+            font-size: 1.1em;
+            padding: 0 @container-horizontal;
+            color: #aaaaaa;
+            
+            .flex-vertical-center();
+            .justify-content(space-between);
+        }
+    }
+}

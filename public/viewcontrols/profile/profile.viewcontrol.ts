@@ -2,7 +2,9 @@
 
 import plat = require('platypus');
 import BaseViewControl = require('../../viewcontrols/base/base.viewcontrol');
+import ScheduleViewControl = require('../../viewcontrols/schedule/schedule.viewcontrol');
 import ParseRepository = require('../../repositories/parse/parse.repository');
+import UserRepository = require('../../repositories/user/user.repository');
 import InsuranceService = require('../../services/local/local.service');
 
 var moment = require('moment');
@@ -92,6 +94,7 @@ class ProfileViewControl extends BaseViewControl {
     ];
 
     constructor(private parse: ParseRepository,
+        private userRepository: UserRepository,
         private insurance: InsuranceService) {
         super();
     }
@@ -223,24 +226,25 @@ class ProfileViewControl extends BaseViewControl {
 
         this.context.user.conditions.push(context.currentCondition);
         context.currentCondition = null;
-        console.log(this.context.user);
     }
 
     setCondition(ev: any) {
         this.context.currentCondition = JSON.parse(ev.target.selectedOptions[0].value);
     }
 
-    deleteCondition(index) {
+    deleteCondition(index: number) {
         this.context.user.conditions.splice(index, 1);
     }
 
     submit() {
-        console.log(this.context.user);
+        this.userRepository.storeUser(this.context.user);
+        this.navigator.navigate(ScheduleViewControl);
     }
 }
 
 plat.register.viewControl('profile-vc', ProfileViewControl, [
     ParseRepository,
+    UserRepository,
     InsuranceService
 ]);
 

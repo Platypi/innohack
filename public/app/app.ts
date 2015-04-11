@@ -1,6 +1,7 @@
 /// <reference path='../_references.d.ts' />
 declare var StatusBar: { hide(): void; };
 declare var parsePlugin: any;
+
 import plat = require('platypus');
 import LoginViewControl = require('../viewcontrols/login/login.viewcontrol');
 import ProfileViewControl = require('../viewcontrols/profile/profile.viewcontrol');

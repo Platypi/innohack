@@ -1,12 +1,8 @@
 ﻿<div class="main schedule">
-    <ul class="schedule">
-        <li>
-            <div class="procedure">Physical</div>
-            <div class="frequency">Twice Yearly</div>
-        </li>
-        <li>
-            <div class="procedure">Dermatologist</div>
-            <div class="frequency">Once Yearly</div>
+    <ul class="schedule" plat-control="plat-foreach" plat-context="procedures">
+        <li class="{{ 'blue' + (@index + 1) }}">
+            <div class="procedure">{{name}}</div>
+            <div class="frequency">{{frequency}}</div>
         </li>
     </ul>
 </div>

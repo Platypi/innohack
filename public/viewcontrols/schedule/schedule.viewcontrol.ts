@@ -9,7 +9,12 @@ class ScheduleViewControl extends BaseViewControl {
     templateString: string = require('./schedule.viewcontrol.html');
 
     context: any = { 
-        user: null
+        user: null,
+        procedures: [
+            { name: 'Physical', frequency: 'Twice Yearly' },
+            { name: 'Dermatologist', frequency: 'Twice Yearly' },
+            { name: 'Flu Shot', frequency: 'October' },
+        ]
     };
 
     // constructor(private userRepository: UserRepository) {

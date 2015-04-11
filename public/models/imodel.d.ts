@@ -33,14 +33,15 @@
 
     interface IHour extends Array<[string, string]> { }
 
-    interface IProcedure {
+    interface IService {
+        parseObject: any;
         name: string;
-        description?: string;
+        description: string;
 
         /**
          * corresponds to the healthcare provider category_labels, used for filtering
          */
-        category_label: string;
+        //category_label: string;
 
         /**
          * i.e. 'day', 'month', 'year'
@@ -51,7 +52,7 @@
          * The number of intervals (specified in the interval property) between each procedure. For example, 
          * interval=month and interval_count=3 means every 3 months.
          */
-        interval_count: number;
+        intervalcount: number;
     }
 
     interface IUser {
@@ -63,6 +64,8 @@
     }
 
     interface ICondition {
-
+        parseObject: any;
+        name: string;
+        description: string;
     }
 }

@@ -23,7 +23,7 @@ stringify = stringify({
 });
 
 //Determines which platforms should be added for Cordova projects
-var cordovaPlatforms = []; //add 'android' if you want to support Android
+var cordovaPlatforms = ['android']; //add 'android' if you want to support Android
 if (process.platform === 'win32') {
     cordovaPlatforms.push('windows');
 } else if (process.platform === 'darwin') {
@@ -158,6 +158,7 @@ module.exports = function (grunt) {
                     command: 'plugin',
                     action: 'add',
                     plugins: [
+                        'https://github.com/benjie/phonegap-parse-plugin',
                         'network-information',
                         'splashscreen',
                         'org.apache.cordova.statusbar',

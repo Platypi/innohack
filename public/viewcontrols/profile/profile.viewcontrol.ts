@@ -1,7 +1,7 @@
 ﻿/// <reference path="../../_references.d.ts" />
 
 import plat = require('platypus');
-
+import ParseRepository = require('../../repositories/parse/parse.repository');
 import BaseViewControl = require('../../viewcontrols/base/base.viewcontrol');
 
 class ProfileViewControl extends BaseViewControl {
@@ -28,7 +28,10 @@ class ProfileViewControl extends BaseViewControl {
             { name: 'October', value: 10 },
             { name: 'November', value: 11 },
             { name: 'December', value: 12 },
-        ]
+        ],
+        conditions: <Array<models.ICondition>>[],
+        services: <Array<models.IService>>[],
+        gender: <string>null
     };
 
     // templates bind to
@@ -70,6 +73,19 @@ class ProfileViewControl extends BaseViewControl {
         }
     ];
 
+    constructor(private parse: ParseRepository) {
+        super();
+    }
+
+    initialize() {
+        this.parse.getConditions().then((conditions) => {
+            this.context.conditions = conditions;
+        });
+        this.parse.getServices().then((services) => {
+            this.context.services = services;
+        });
+    }
+
     setGender(gender: string) {
         this.context.gender = gender;
     }
@@ -109,6 +125,8 @@ class ProfileViewControl extends BaseViewControl {
     }
 }
 
-plat.register.viewControl('profile-vc', ProfileViewControl);
+plat.register.viewControl('profile-vc', ProfileViewControl, [
+    ParseRepository
+]);
 
 export = ProfileViewControl;

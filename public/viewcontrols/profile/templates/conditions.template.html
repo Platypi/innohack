@@ -1,2 +1,17 @@
+<div class="icon-container">
+    <img src="assets/images/pill.svg" alt="" class="profile-icon">
+</div>
 <h1>Conditions</h1>
 <p>Adding any preexisting conditions will help us suggest what practitioners to visit.</p>
+<div class="input-group input-group-inline conditions">
+    <plat-select class="input-inline basic-select" plat-context="conditions" plat-change="setCondition()" plat-options="{ default: { value: '0', textContent: 'Select a Condition' } }">
+        <option value="{{@context}}">{{name}}</option>
+    </plat-select>
+    <i class="fa fa-plus form-icon form-icon-right form-icon-success" plat-tap="addCondition()"></i>
+</div>
+<ul class="listview" plat-control="plat-foreach" plat-context="user.conditions">
+    <li>
+        <span class="name">{{name}}</span>
+        <i class="fa fa-close form-icon form-icon-danger" plat-tap="deleteCondition(@index)"></i>
+    </li>
+</ul>

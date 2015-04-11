@@ -3,6 +3,7 @@
 import plat = require('platypus');
 
 import BaseViewControl = require('../../viewcontrols/base/base.viewcontrol');
+import FactualRepository = require('../../repositories/factual/factual.repository');
 
 class ProcedureViewControl extends BaseViewControl {
     /**
@@ -16,6 +17,10 @@ class ProcedureViewControl extends BaseViewControl {
      */
     context: any = { };
 
+    constructor(private repository: FactualRepository) {
+        super();
+    }
+
     /**
      * This is the initialize event method for a control. In this method a control 
      * should initialize all the necessary variables. This method is typically only 
@@ -25,7 +30,20 @@ class ProcedureViewControl extends BaseViewControl {
      * to fire the loaded event. No control will be loaded until the view control has 
      * specified a context.
      */
-    initialize(): void { }
+    initialize(): void {
+        this.repository.all({
+            latitude: 47.311049,
+            longitude: -122.580001,
+            insurances: ['Humana'],
+            category_labels: ['Chiropractors', 'Dentists']
+        }).then((value) => {
+            return this.repository.one(value[0].factual_id);
+        }).then((value) => {
+            console.log(value);
+        }).catch((e) => {
+            console.log(e);
+        });
+    }
 
     /**
      * This event is fired after all of the child controls of this control have loaded.
@@ -72,6 +90,8 @@ class ProcedureViewControl extends BaseViewControl {
     dispose(): void { }
 }
 
-plat.register.viewControl('procedure-vc', ProcedureViewControl);
+plat.register.viewControl('procedure-vc', ProcedureViewControl, [
+    FactualRepository
+]);
 
 export = ProcedureViewControl;

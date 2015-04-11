@@ -1,5 +1,6 @@
 ﻿declare module config {
     interface IFilter {
+        factual_id?: string;
         latitude?: number;
         longitude?: number;
         meters?: number;

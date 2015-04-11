@@ -5,7 +5,7 @@
         </div>
     </div>
     <ul plat-control="plat-foreach" plat-context="providers" class="schedule">
-        <li class="{{ 'blue' + (@index + 1) }}" plat-tap="">
+        <li class="{{ 'blue' + (@index + 1) }}" plat-tap="viewProvider(@context)">
             <div class="procedure">{{name}}</div>
         </li>
     </ul>

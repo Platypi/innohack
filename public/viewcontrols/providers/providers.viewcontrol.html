@@ -1,9 +1,13 @@
-﻿<div class="listview">
-	<ul plat-control="plat-foreach" plat-context="providers" class="providers">
-		<li>
-			<span>{{name}}</span>
-			<span>{{locality}}</span>
-			<span>{{tel}}</span>
-		</li>
-	</ul>
+﻿<div class="header">
+    <div class="procedure">
+        <div class="name">{{provider.name}}</div>
+    </div>
+</div>
+<div class="navbar">
+    <span class="navbar-action navbar-action-left" plat-tap="goBack">
+        <i class="fa fa-arrow-left"></i>
+    </span>
+    <span class="navbar-action navbar-action-success" plat-tap="submit" plat-visible="{{ currentStep === 5 }}">
+        <i class="fa fa-phone"></i>
+    </span>
 </div>

@@ -1,4 +1,9 @@
 <div class="main schedule">
+    <div class="header">
+        <div class="procedure">
+            <div class="name">Service Schedule</div>
+        </div>
+    </div>
 	<ul plat-control="plat-foreach" plat-context="services" class="schedule">
 		<li class="{{ 'blue' + (@index + 1) }}" plat-tap="viewProcedure(@context)">
 			<div class="procedure">{{name}}</div>

@@ -6,6 +6,7 @@ import BaseViewControl = require('../../viewcontrols/base/base.viewcontrol');
 import FactualRepository = require('../../repositories/factual/factual.repository');
 import UserRepository = require('../../repositories/user/user.repository');
 import GeoCodingService = require('../../services/geocoding/geocoding.service');
+import ProviderViewControl = require('../../viewcontrols/providers/providers.viewcontrol');
 
 class ProcedureViewControl extends BaseViewControl {
     templateString: string = require('./procedure.viewcontrol.html');
@@ -32,6 +33,14 @@ class ProcedureViewControl extends BaseViewControl {
                 this.context.providers = results;
             });
         }, (e) => { console.log(e);});
+    }
+
+    viewProvider(provider: models.IHealthcareProvider) {
+        this.userRepository.storeUser(this.utils.extend({}, this.context.user, {
+            selectedProvider: provider
+        }));
+
+        this.navigator.navigate(ProviderViewControl);
     }
 
     goBack() {

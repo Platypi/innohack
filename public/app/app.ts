@@ -21,7 +21,7 @@ export class App extends plat.App {
             { pattern: 'profile', view: ProfileViewControl },
             { pattern: 'schedule', view: ScheduleViewControl },
             { pattern: 'procedure', view: ProcedureViewControl },
-            { pattern: 'providers/:id', view: ProvidersViewControl }
+            { pattern: 'providers', view: ProvidersViewControl }
         ]);
     }
 

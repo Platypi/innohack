@@ -15,11 +15,12 @@ class ProvidersViewControl extends BaseViewControl {
     }
 
     initialize() {
-        this.provider = this.userRepository.fetchUser().selectedProvider;
+        this.context.provider = this.userRepository.fetchUser().selectedProvider;
+        console.log(this.context.provider);
     }
 
-    navigatedTo(parameter: { id: string; }) {
-
+    goBack() {
+        this.navigator.goBack();
     }
 }
 

@@ -23,7 +23,7 @@ stringify = stringify({
 });
 
 //Determines which platforms should be added for Cordova projects
-var cordovaPlatforms = ['android']; //add 'android' if you want to support Android
+var cordovaPlatforms = []; //add 'android' if you want to support Android
 if (process.platform === 'win32') {
     cordovaPlatforms.push('windows');
 } else if (process.platform === 'darwin') {
@@ -111,9 +111,16 @@ module.exports = function (grunt) {
                     {
                         expand: true, cwd: './public',
                         src: [
-                            'common/assets/**',
+                            './assets/**',
                         ],
                         dest: './cordova/www/'
+                    },
+                    {
+                        expand: true, cwd: './cordovares',
+                        src: [
+                            '*.xml',
+                        ],
+                        dest: './cordova/'
                     }
                 ],
                 options: {

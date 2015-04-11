@@ -3,6 +3,8 @@ declare var StatusBar: { hide(): void; };
 import plat = require('platypus');
 import LoginViewControl = require('../viewcontrols/login/login.viewcontrol');
 import ProfileViewControl = require('../viewcontrols/profile/profile.viewcontrol');
+import ScheduleViewControl = require('../viewcontrols/schedule/schedule.viewcontrol');
+import ProcedureViewControl = require('../viewcontrols/procedure/procedure.viewcontrol');
 
 export class App extends plat.App {
     /**
@@ -14,7 +16,9 @@ export class App extends plat.App {
 
         router.configure([
             { pattern: '', view: LoginViewControl },
-            { pattern: 'profile', view: ProfileViewControl }
+            { pattern: 'profile', view: ProfileViewControl },
+            { pattern: 'schedule', view: ScheduleViewControl },
+            { pattern: 'procedure', view: ProcedureViewControl }
         ]);
     }
 

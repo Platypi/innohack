@@ -8,11 +8,14 @@ class ProfileViewControl extends BaseViewControl {
     templateString: string = require('./profile.viewcontrol.html');
     
     context = {
-        currentStep: 0
+        currentStep: 0,
+        gender: <string>null
     };
 
     // templates bind to
     templateTarget: plat.controls.INamedElement<HTMLDivElement, any>;
+
+    // order: gender, dob, zip, insurance, meds, conditions
 
     // templates (in order of appearance!)
     templates = [
@@ -47,6 +50,10 @@ class ProfileViewControl extends BaseViewControl {
             selected: false
         }
     ];
+
+    setGender(gender: string) {
+        this.context.gender = gender;
+    }
 
     fetchTemplates() {
         var serialize = this.dom.serializeHtml;

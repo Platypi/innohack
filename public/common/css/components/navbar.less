@@ -9,7 +9,7 @@
         position: absolute;
         bottom: 0;
         width: 100%;
-        height: 4em;
+        height: @navbar-height;
         background-color: @navbar-grey;
         .flexbox();
         .justify-content(flex-end);
@@ -28,6 +28,10 @@
 
             &.navbar-action-success {
                 background-color: @green;
+
+                &:active, &:hover {
+                    background-color: darken(@green, 5%);
+                }
             }
 
             &.navbar-action-left {

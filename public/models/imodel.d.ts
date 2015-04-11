@@ -7,6 +7,7 @@
         country: string;
         degrees: Array<string>;
         gender: string;
+        hours: IDailyHours;
         hours_display: string;
         insurances: Array<string>;
         languages: Array<string>;
@@ -20,5 +21,26 @@
         tel: string;
         tel_normalized: string;
         website: string;
+    }
+
+    interface IDailyHours {
+        monday: Array<IHour>;
+        tuesday: Array<IHour>;
+        wednesday: Array<IHour>;
+        thursday: Array<IHour>;
+        friday: Array<IHour>;
+    }
+
+    interface IHour extends Array<[string, string]> { }
+
+    interface IUser {
+        dob: Date;
+        insurance: string;
+        gender: string;
+        conditions: Array<ICondition>;
+    }
+
+    interface ICondition {
+
     }
 }

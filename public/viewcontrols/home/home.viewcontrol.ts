@@ -14,7 +14,12 @@ class HomeViewControl extends BaseViewControl {
     }
 
     initialize() {
-        this.repository.all().then((value) => {
+        this.repository.all({
+            latitude: 47.311049,
+            longitude: -122.580001,
+            insurances: ['Humana'],
+            category_labels: ['Chiropractors', 'Dentists']
+        }).then((value) => {
             console.log(value);
         }).catch((e) => {
             console.log(e);

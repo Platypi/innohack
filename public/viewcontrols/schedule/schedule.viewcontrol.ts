@@ -14,7 +14,42 @@ class ScheduleViewControl extends BaseViewControl {
      * The context variable on a control corresponds to what can be used 
      * for data binding in the view.
      */
-    context: any = { };
+    context: any = { 
+        services: [
+            { 
+                name: "Physical",
+                description: "",
+                interval: "year",
+                intervalcount: 1
+            }, {
+                name: "Flu Shot",
+                description: "",
+                interval: "year",
+                intervalcount: 1
+            }, {
+                name: "Eye Exam",
+                description: "",
+                interval: "year",
+                intervalcount: 1
+            }, {
+                name: "Dental Cleaning",
+                description: "",
+                interval: "month",
+                intervalcount: 6
+            }, {
+                gender: "Female",
+                name: "Mamagram",
+                description: "",
+                interval: "year",
+                intervalcount: 1
+            }, {
+                name: "Prostate Exam",
+                description: "",
+                interval: "year",
+                intervalcount: 1
+            }
+        ]
+    };
 
     /**
      * This is the initialize event method for a control. In this method a control 

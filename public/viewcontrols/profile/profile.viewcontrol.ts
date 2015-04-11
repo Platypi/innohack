@@ -231,7 +231,7 @@ class ProfileViewControl extends BaseViewControl {
         this.context.currentCondition = JSON.parse(ev.target.selectedOptions[0].value);
     }
 
-    deleteCondition(index) {
+    deleteCondition(index: any) {
         this.context.user.conditions.splice(index, 1);
     }
 

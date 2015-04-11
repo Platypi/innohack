@@ -1,1 +1,8 @@
-﻿<h1>Schedule</h1>
+﻿<div class="listview">
+	<ul plat-control="plat-foreach" plat-context="services" class="providers">
+		<li>
+			<span>{{name}}</span>
+			<span>{{ intervalcount === 1 ? interval + 'ly' : 'every ' + intervalcount + ' ' + interval + 's' }}</span>
+		</li>
+	</ul>
+</div>

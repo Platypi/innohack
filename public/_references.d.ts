@@ -1,6 +1,7 @@
 /// <reference path="../node_modules/platypusui/platypusui.d.ts" />
 /// <reference path="typings/tsd.d.ts" />
 /// <reference path="services/factual/ifactual.service.d.ts" />
+/// <reference path="models/imodel.d.ts" />
 
 // models
 /// <reference path="factories/server/iserver.factory.d.ts" />

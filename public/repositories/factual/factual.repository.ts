@@ -13,6 +13,10 @@ class FactualRepository extends BaseRepository {
     all(filter: config.IFilter) {
         return this.service.all(filter);
     }
+
+    one(id: string) {
+        return this.service.one(id);
+    }
 }
 
 plat.register.injectable('factual-repo', FactualRepository, [

@@ -37,6 +37,8 @@ class ProcedureViewControl extends BaseViewControl {
             insurances: ['Humana'],
             category_labels: ['Chiropractors', 'Dentists']
         }).then((value) => {
+            return this.repository.one(value[0].factual_id);
+        }).then((value) => {
             console.log(value);
         }).catch((e) => {
             console.log(e);

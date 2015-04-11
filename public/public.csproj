@@ -59,6 +59,7 @@
     <TypeScriptCompile Include="factories\base\ibase.factory.d.ts" />
     <TypeScriptCompile Include="factories\server\iserver.factory.d.ts" />
     <TypeScriptCompile Include="main.ts" />
+    <TypeScriptCompile Include="models\imodel.d.ts" />
     <TypeScriptCompile Include="repositories\base\base.repository.ts" />
     <TypeScriptCompile Include="repositories\factual\factual.repository.ts" />
     <TypeScriptCompile Include="services\base\base.service.ts" />

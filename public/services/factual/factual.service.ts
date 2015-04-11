@@ -9,8 +9,16 @@ var key = 'WDNBOpDcaX9BJuAnnHsBc8Gjk45rxGkFJU2z7H1Y',
 class FactualService extends BaseService {
     baseUrl: string = 'http://api.v3.factual.com:80/t/healthcare-providers-us';
 
-    all(filter?: config.IFilter): plat.async.IThenable<any> {
+    all(filter?: config.IFilter): plat.async.IThenable<Array<models.IHealthcareProvider>> {
         return this.request(filter);
+    }
+
+    one(id: string): plat.async.IThenable<models.IHealthcareProvider> {
+        return this.request({
+            factual_id: id
+        }).then((result) => {
+            return result[0];
+        });
     }
 
     private request(filter?: config.IFilter, endpoint: string = '') {
@@ -48,6 +56,10 @@ class FactualService extends BaseService {
                     $meters: filter.meters || 5000
                 }
             };
+        }
+
+        if (this._utils.isString(filter.factual_id)) {
+            filters.factual_id = filter.factual_id;
         }
 
         if (this._utils.isArray(filter.insurances)) {

@@ -64,9 +64,10 @@
     <TypeScriptCompile Include="services\factual\factual.service.ts" />
     <TypeScriptCompile Include="services\factual\ifactual.service.d.ts" />
     <TypeScriptCompile Include="viewcontrols\base\base.viewcontrol.ts" />
-    <TypeScriptCompile Include="viewcontrols\home\home.viewcontrol.ts" />
     <TypeScriptCompile Include="viewcontrols\login\login.viewcontrol.ts" />
+    <TypeScriptCompile Include="viewcontrols\procedure\procedure.viewcontrol.ts" />
     <TypeScriptCompile Include="viewcontrols\profile\profile.viewcontrol.ts" />
+    <TypeScriptCompile Include="viewcontrols\schedule\schedule.viewcontrol.ts" />
     <TypeScriptCompile Include="_references.d.ts" />
   </ItemGroup>
   <ItemGroup>
@@ -76,11 +77,12 @@
     <Content Include="common\css\mixins\mixins.less" />
     <Content Include="common\css\variables\variables.less" />
     <Content Include="viewcontrols\login\login.viewcontrol.html" />
+    <Content Include="viewcontrols\procedure\procedure.viewcontrol.html" />
     <Content Include="viewcontrols\profile\profile.viewcontrol.html" />
+    <Content Include="viewcontrols\schedule\schedule.viewcontrol.html" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
-    <Content Include="viewcontrols\home\home.viewcontrol.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="common\assets\fonts\" />

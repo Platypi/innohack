@@ -20,8 +20,20 @@ class ProfileViewControl extends BaseViewControl {
                 health: '',
                 dental: '',
                 vision: ''
+            },
+            conditions: <Array<models.ICondition>>[],
+            medications: <Array<any>>[]
+        },
+        currentMed: {
+            amount: 0,
+            name: '',
+            time: {
+                hours: '',
+                minutes: '',
+                meridiem: ''
             }
         },
+        currentCondition: <models.ICondition>null,
         gender: <string>null,
         conditions: <Array<models.ICondition>>[],
         services: <Array<models.IService>>[],
@@ -51,39 +63,31 @@ class ProfileViewControl extends BaseViewControl {
     // templates bind to
     templateTarget: plat.controls.INamedElement<HTMLDivElement, any>;
 
-    // order: gender, dob, zip, insurance, meds, conditions
-
     // templates (in order of appearance!)
     templates = [
         {
-            name: 'medications',
-            template: require('./templates/medications.template.html'),
-            selected: false
+            name: 'gender',
+            template: require('./templates/gender.template.html'),
         },
         {
             name: 'dob',
             template: require('./templates/dob.template.html'),
-            selected: false
-        },
-        {
-            name: 'gender',
-            template: require('./templates/gender.template.html'),
-            selected: true
         },
         {
             name: 'zip',
             template: require('./templates/zip.template.html'),
-            selected: false
         },
         {
             name: 'insurance',
             template: require('./templates/insurance.template.html'),
-            selected: false
         },
         {
             name: 'conditions',
             template: require('./templates/conditions.template.html'),
-            selected: false
+        },
+        {
+            name: 'medications',
+            template: require('./templates/medications.template.html')
         }
     ];
 
@@ -178,6 +182,29 @@ class ProfileViewControl extends BaseViewControl {
         this.setDayContext(month);
     }
 
+    addMedication() {
+        var context = this.context;
+
+        context.user.medications.push(this.utils.clone(context.currentMed, true));
+        context.currentMed = this.utils.clone({
+            amount: 0,
+            name: '',
+            time: {
+                hours: '',
+                minutes: '',
+                meridiem: ''
+            }
+        }, true);
+    }
+
+    deleteMedication(index: number) {
+        this.context.user.medications.splice(index, 1);
+    }
+
+    setMedTime(type: string, ev: any) {
+        (<any>this.context.currentMed).time[type] = ev.target.selectedOptions[0].value;
+    }
+
     yearChosen(ev: any) {
         this.context.user.dob.year(ev.target.selectedOptions[0].value);
     }
@@ -189,6 +216,26 @@ class ProfileViewControl extends BaseViewControl {
     setInsurance(type: string, ev: any) {
         var insurance: any = this.context.user.insurance;
         insurance[type] = ev.target.selectedOptions[0].value;
+    }
+
+    addCondition() {
+        var context = this.context;
+
+        this.context.user.conditions.push(context.currentCondition);
+        context.currentCondition = null;
+        console.log(this.context.user);
+    }
+
+    setCondition(ev: any) {
+        this.context.currentCondition = JSON.parse(ev.target.selectedOptions[0].value);
+    }
+
+    deleteCondition(index) {
+        this.context.user.conditions.splice(index, 1);
+    }
+
+    submit() {
+        console.log(this.context.user);
     }
 }
 

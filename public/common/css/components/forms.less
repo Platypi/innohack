@@ -15,6 +15,10 @@
         border-radius: 4px;
         border: 2px solid @accent-blue;
 
+        &.conditions {
+            height: 3.5em;
+        }
+
         & > .input-control {
             width: 100%;
             height: @navbar-height;
@@ -28,10 +32,6 @@
             .flex-vertical-center();
             .justify-content(space-between);
             
-            .form-icon {
-                padding-right: 1.25em;
-            }
-
             & > .input-inline {
                 border: none;
             }
@@ -73,7 +73,7 @@
 
         .basic-select {
             background-image: none;
-            padding: 0 0.5em;
+            padding: 0 0.3em!important;
             min-width: 3em;
             color: @form-font-color;
         }
@@ -88,6 +88,10 @@
 
         &.form-icon-success {
             color: @green;
-        }            
+        }
+
+        &.form-icon-right {
+            padding-right: 1em;
+        }     
     }
 }

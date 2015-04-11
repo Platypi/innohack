@@ -1,8 +1,16 @@
-﻿<div class="listview">
-	<ul plat-control="plat-foreach" plat-context="services" class="providers">
+<div class="main schedule">
+	<ul plat-control="plat-foreach" plat-context="services" class="schedule">
 		<li>
-			<span>{{name}}</span>
-			<span>{{ intervalcount === 1 ? interval + 'ly' : 'every ' + intervalcount + ' ' + interval + 's' }}</span>
+			<div class="procedure">{{name}}</span>
+			<div class="frequency">{{ intervalcount === 1 ? interval + 'ly' : 'every ' + intervalcount + ' ' + interval + 's' }}</span>
 		</li>
 	</ul>
+</div>
+<div class="navbar">
+    <span class="navbar-action navbar-action-left">
+        <i class="fa fa-arrow-left"></i>
+    </span>
+    <span class="navbar-action navbar-action-right">
+        <i class="fa fa-arrow-right"></i>
+    </span>
 </div>

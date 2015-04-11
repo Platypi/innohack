@@ -33,11 +33,27 @@
 
     interface IHour extends Array<[string, string]> { }
 
+    interface IProcedure {
+        name: string;
+        description?: string;
+        /**
+         * i.e. 'day', 'month', 'year'
+         */
+        interval: string;
+
+        /**
+         * The number of intervals (specified in the interval property) between each procedure. For example, 
+         * interval=month and interval_count=3 means every 3 months.
+         */
+        interval_count: number;
+    }
+
     interface IUser {
         dob: Date;
         insurance: string;
         gender: string;
-        conditions: Array<ICondition>;
+        conditions?: Array<ICondition>;
+        medications?: Array<string>;
     }
 
     interface ICondition {

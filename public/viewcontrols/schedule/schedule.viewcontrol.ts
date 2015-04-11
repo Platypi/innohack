@@ -32,12 +32,6 @@ class ScheduleViewControl extends BaseViewControl {
                 interval: "month",
                 intervalcount: 6
             }, {
-                gender: "Female",
-                name: "Mammogram",
-                description: "",
-                interval: "year",
-                intervalcount: 1
-            }, {
                 name: "Prostate Exam",
                 description: "",
                 interval: "year",

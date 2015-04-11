@@ -2,11 +2,10 @@
     <div class="header">
         <div class="procedure">
             <div class="name">{{user.selectedProcedure.name}}</div>
-            <div class="description">{{user.selectedProcedure.description}}</div>
         </div>
     </div>
     <ul plat-control="plat-foreach" plat-context="providers" class="schedule">
-        <li class="{{ 'blue' + (@index + 1) }}">
+        <li class="{{ 'blue' + (@index + 1) }}" plat-tap="">
             <div class="procedure">{{name}}</div>
         </li>
     </ul>

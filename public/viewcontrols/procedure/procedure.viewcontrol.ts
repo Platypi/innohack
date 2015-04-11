@@ -16,7 +16,7 @@ class ProcedureViewControl extends BaseViewControl {
 
     constructor(private repository: FactualRepository,
         private userRepository: UserRepository, 
-        private geocoding: GeoCodingService, 
+        private geocoding: GeoCodingService,
         private factual: FactualRepository) {
         super();
     }

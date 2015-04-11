@@ -7,24 +7,43 @@ import UserRepository = require('../../repositories/user/user.repository');
 
 class ScheduleViewControl extends BaseViewControl {
     templateString: string = require('./schedule.viewcontrol.html');
-
     context: any = { 
         user: null,
-        procedures: [
-            { name: 'Physical', frequency: 'Twice Yearly' },
-            { name: 'Dermatologist', frequency: 'Twice Yearly' },
-            { name: 'Flu Shot', frequency: 'October' },
+        services: [
+            { 
+                name: "Physical",
+                description: "",
+                interval: "year",
+                intervalcount: 1
+            }, {
+                name: "Flu Shot",
+                description: "",
+                interval: "year",
+                intervalcount: 1
+            }, {
+                name: "Eye Exam",
+                description: "",
+                interval: "year",
+                intervalcount: 1
+            }, {
+                name: "Dental Cleaning",
+                description: "",
+                interval: "month",
+                intervalcount: 6
+            }, {
+                gender: "Female",
+                name: "Mamagram",
+                description: "",
+                interval: "year",
+                intervalcount: 1
+            }, {
+                name: "Prostate Exam",
+                description: "",
+                interval: "year",
+                intervalcount: 1
+            }
         ]
     };
-
-    // constructor(private userRepository: UserRepository) {
-    //     super();
-    // }
-
-    initialize(): void { 
-        // this.context.user = this.userRepository.fetchUser();
-        // console.log(this.context);
-    }
 }
 
 plat.register.viewControl('schedule-vc', ScheduleViewControl, [

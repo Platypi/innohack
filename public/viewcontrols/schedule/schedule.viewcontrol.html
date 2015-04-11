@@ -1,10 +1,10 @@
-﻿<div class="main schedule">
-    <ul class="schedule" plat-control="plat-foreach" plat-context="procedures">
-        <li class="{{ 'blue' + (@index + 1) }}">
-            <div class="procedure">{{name}}</div>
-            <div class="frequency">{{frequency}}</div>
-        </li>
-    </ul>
+<div class="main schedule">
+	<ul plat-control="plat-foreach" plat-context="services" class="schedule">
+		<li>
+			<div class="procedure">{{name}}</span>
+			<div class="frequency">{{ intervalcount === 1 ? interval + 'ly' : 'every ' + intervalcount + ' ' + interval + 's' }}</span>
+		</li>
+	</ul>
 </div>
 <div class="navbar">
     <span class="navbar-action navbar-action-left">

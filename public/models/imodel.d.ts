@@ -36,6 +36,12 @@
     interface IProcedure {
         name: string;
         description?: string;
+
+        /**
+         * corresponds to the healthcare provider category_labels, used for filtering
+         */
+        category_label: string;
+
         /**
          * i.e. 'day', 'month', 'year'
          */

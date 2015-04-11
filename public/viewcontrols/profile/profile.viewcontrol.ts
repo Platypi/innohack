@@ -9,7 +9,26 @@ class ProfileViewControl extends BaseViewControl {
     
     context = {
         currentStep: 0,
-        gender: <string>null
+        gender: <string>null,
+        dob: {
+            month: <number>null,
+            date: <number>null,
+            year: <number>null
+        },
+        months: [
+            { name: 'January', value: 1 },
+            { name: 'February', value: 2 },
+            { name: 'March', value: 3 },
+            { name: 'April', value: 4 },
+            { name: 'May', value: 5 },
+            { name: 'June', value: 6 },
+            { name: 'July', value: 7 },
+            { name: 'August', value: 8 },
+            { name: 'September', value: 9 },
+            { name: 'October', value: 10 },
+            { name: 'November', value: 11 },
+            { name: 'December', value: 12 },
+        ]
     };
 
     // templates bind to
@@ -20,14 +39,14 @@ class ProfileViewControl extends BaseViewControl {
     // templates (in order of appearance!)
     templates = [
         {
-            name: 'gender',
-            template: require('./templates/gender.template.html'),
-            selected: true
-        },
-        {
             name: 'dob',
             template: require('./templates/dob.template.html'),
             selected: false
+        },
+        {
+            name: 'gender',
+            template: require('./templates/gender.template.html'),
+            selected: true
         },
         {
             name: 'zip',

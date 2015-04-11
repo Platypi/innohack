@@ -1,0 +1,26 @@
+@import '../variables/variables';
+@import '../mixins/mixins';
+@import (reference) '../../../../node_modules/platypusui/platypus';
+
+& {
+    #platui > #mixins;
+
+    .listview {
+        width: 100%;
+        max-width: 30em;
+        margin: 1em auto;
+        padding: 0;
+        list-style: none;
+        background-color: @white;
+        border: 2px solid @accent-blue;
+        border-radius: 4px;
+
+        & > li {
+            height: 3em;
+            font-size: 1.1em;
+            padding: 0 @container-horizontal;
+            .flex-vertical-center();
+            .justify-content(space-between);
+        }
+    }
+}

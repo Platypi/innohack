@@ -24,6 +24,34 @@
             border-bottom: 2px solid @accent-blue;
         }
 
+        &.input-group-inline {
+            .flex-vertical-center();
+            .justify-content(space-between);
+            
+            .form-icon {
+                padding-right: 1.25em;
+            }
+
+            & > .input-inline {
+                border: none;
+            }
+
+            .amount {
+                position: relative;
+                .flex-vertical-center();
+                margin-right: 1em;
+                padding-left: @container-horizontal;
+                color: @form-font-color;
+
+                & > input {
+                    width: 5em;
+                    border: none;
+                    outline: none;
+                    color: @form-font-color;
+                }
+            }
+        }
+
         .radio {
             .flex-vertical-center();
             .justify-content(space-between);
@@ -42,5 +70,24 @@
         & [type="text"] {
             font-size: 1.1em;
         }
+
+        .basic-select {
+            background-image: none;
+            padding: 0 0.5em;
+            min-width: 3em;
+            color: @form-font-color;
+        }
+    }
+
+    .form-icon {
+        font-size: 1.5em;
+        
+        &.form-icon-danger {
+            color: @red;
+        }
+
+        &.form-icon-success {
+            color: @green;
+        }            
     }
 }

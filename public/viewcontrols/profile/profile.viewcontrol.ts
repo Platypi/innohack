@@ -17,9 +17,9 @@ class ProfileViewControl extends BaseViewControl {
             zipCode: <string>null,
             dob: moment(),
             insurance: {
-                health: {},
-                dental: {},
-                vision: {}
+                health: '',
+                dental: '',
+                vision: ''
             }
         },
         gender: <string>null,
@@ -40,6 +40,9 @@ class ProfileViewControl extends BaseViewControl {
             { name: 'November', value: 10 },
             { name: 'December', value: 11 },
         ],
+        hours: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+        minutes: ['00', '15', '30'],
+        meridiem: ['AM', 'PM'],
         years: <Array<number>>[],
         days: <Array<number>>[],
         dob: moment()
@@ -53,13 +56,8 @@ class ProfileViewControl extends BaseViewControl {
     // templates (in order of appearance!)
     templates = [
         {
-            name: 'insurance',
-            template: require('./templates/insurance.template.html'),
-            selected: false
-        },
-        {
-            name: 'zip',
-            template: require('./templates/zip.template.html'),
+            name: 'medications',
+            template: require('./templates/medications.template.html'),
             selected: false
         },
         {
@@ -72,10 +70,14 @@ class ProfileViewControl extends BaseViewControl {
             template: require('./templates/gender.template.html'),
             selected: true
         },
-        
         {
-            name: 'medications',
-            template: require('./templates/medications.template.html'),
+            name: 'zip',
+            template: require('./templates/zip.template.html'),
+            selected: false
+        },
+        {
+            name: 'insurance',
+            template: require('./templates/insurance.template.html'),
             selected: false
         },
         {
@@ -182,6 +184,11 @@ class ProfileViewControl extends BaseViewControl {
 
     dayChosen(ev: any) {
         this.context.user.dob.date(ev.target.selectedOptions[0].value);
+    }
+
+    setInsurance(type: string, ev: any) {
+        var insurance: any = this.context.user.insurance;
+        insurance[type] = ev.target.selectedOptions[0].value;
     }
 }
 

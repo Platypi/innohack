@@ -1,2 +1,28 @@
+<div class="icon-container">
+    <img src="assets/images/pill.svg" alt="" class="profile-icon">
+</div>
 <h1>Medications</h1>
-<p>Create reminders for when to take your prescriptions.</p>
+<p>We can help remind you when to take your prescriptions.</p>
+<div class="input-group input-group-inline">
+    <div class="amount">
+        <input type="text" class="input-control input-inline" placeholder="0">
+        <span>mg</span>
+    </div>
+    <input type="text" class="input-control input-inline medication" placeholder="Medication Name">
+    <plat-select class="input-inline basic-select" plat-context="hours">
+        <option value="{{@context}}">{{@context}}</option>
+    </plat-select>
+    <plat-select class="input-inline basic-select" plat-context="minutes">
+        <option value="{{@context}}">{{@context}}</option>
+    </plat-select>
+    <plat-select class="input-inline basic-select" plat-context="meridiem">
+        <option value="{{@context}}">{{@context}}</option>
+    </plat-select>
+    <i class="fa fa-plus form-icon form-icon-success"></i>
+</div>
+<ul class="listview">
+    <li>
+        <span class="name">200mg Oxycontin 4:00PM</span>
+        <i class="fa fa-close form-icon form-icon-danger"></i>
+    </li>
+</ul>

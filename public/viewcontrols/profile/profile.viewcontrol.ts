@@ -110,6 +110,7 @@ class ProfileViewControl extends BaseViewControl {
             context.services = services;
         });
         this.insurance.getInsuranceProviders().then((result) => {
+            result.response.providers.sort();
             context.insurance = result.response.providers;
         });
     }

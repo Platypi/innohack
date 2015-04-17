@@ -1,16 +1,16 @@
-<div class="icon-container">
+<div class="profile-container">
     <img src="./assets/images/briefcase.svg" alt="" class="profile-icon">
-</div>
-<h1>Insurance</h1>
-<p>Adding your insurance provider helps us suggest practices that accept your plan.</p>
-<div class="input-group">
-    <plat-select plat-context="insurance" class="input-control" plat-options="{ default: { value: '0', textContent: 'Health Insurance' } }" plat-change="setInsurance('health')">
-        <option value="{{@context}}">{{@context}}</option>
-    </plat-select>
-    <plat-select plat-context="insurance" class="input-control" plat-options="{ default: { value: '0', textContent: 'Dental Insurance' } }" plat-change="setInsurance('dental')">
-        <option value="{{@context}}">{{@context}}</option>
-    </plat-select>
-    <plat-select plat-context="insurance" class="input-control" plat-options="{ default: { value: '0', textContent: 'Vision Insurance' } }" plat-change="setInsurance('vision')">
-        <option value="{{@context}}">{{@context}}</option>
-    </plat-select>
+    <h1>Insurance</h1>
+    <p>Adding your insurance provider helps us suggest practices that accept your plan.</p>
+    <div class="input-group">
+        <plat-select plat-context="insurance" class="input-control" plat-options="{ default: { value: '0', textContent: 'Health Insurance' } }" plat-change="setInsurance('health')">
+            <option value="{{@context}}">{{@context}}</option>
+        </plat-select>
+        <plat-select plat-context="insurance" class="input-control" plat-options="{ default: { value: '0', textContent: 'Dental Insurance' } }" plat-change="setInsurance('dental')">
+            <option value="{{@context}}">{{@context}}</option>
+        </plat-select>
+        <plat-select plat-context="insurance" class="input-control" plat-options="{ default: { value: '0', textContent: 'Vision Insurance' } }" plat-change="setInsurance('vision')">
+            <option value="{{@context}}">{{@context}}</option>
+        </plat-select>
+    </div>
 </div>

@@ -1,28 +1,28 @@
-<div class="icon-container">
+<div class="profile-container">
     <img src="./assets/images/pill.svg" alt="" class="profile-icon">
-</div>
-<h1>Medications</h1>
-<p>We can help remind you when to take your prescriptions.</p>
-<div class="input-group input-group-inline">
-    <div class="amount">
-        <input type="text" class="input-control input-inline" placeholder="0" plat-bind="currentMed.amount">
-        <span>mg</span>
+    <h1>Medications</h1>
+    <p>We can help remind you when to take your prescriptions.</p>
+    <div class="input-group input-group-inline">
+        <div class="amount">
+            <input type="text" class="input-control input-inline" placeholder="0" plat-bind="currentMed.amount">
+            <span>mg</span>
+        </div>
+        <input type="text" class="input-control input-inline medication" placeholder="Medication Name" plat-bind="currentMed.name">
+        <plat-select class="input-inline basic-select" plat-context="hours" plat-change="setMedTime('hours')">
+            <option value="{{@context}}">{{@context}}</option>
+        </plat-select>
+        <plat-select class="input-inline basic-select" plat-context="minutes" plat-change="setMedTime('minutes')">
+            <option value="{{@context}}">{{@context}}</option>
+        </plat-select>
+        <plat-select class="input-inline basic-select" plat-context="meridiem"  plat-change="setMedTime('meridiem')">
+            <option value="{{@context}}">{{@context}}</option>
+        </plat-select>
+        <i class="fa fa-plus form-icon form-icon-right form-icon-success" plat-tap="addMedication()"></i>
     </div>
-    <input type="text" class="input-control input-inline medication" placeholder="Medication Name" plat-bind="currentMed.name">
-    <plat-select class="input-inline basic-select" plat-context="hours" plat-change="setMedTime('hours')">
-        <option value="{{@context}}">{{@context}}</option>
-    </plat-select>
-    <plat-select class="input-inline basic-select" plat-context="minutes" plat-change="setMedTime('minutes')">
-        <option value="{{@context}}">{{@context}}</option>
-    </plat-select>
-    <plat-select class="input-inline basic-select" plat-context="meridiem"  plat-change="setMedTime('meridiem')">
-        <option value="{{@context}}">{{@context}}</option>
-    </plat-select>
-    <i class="fa fa-plus form-icon form-icon-right form-icon-success" plat-tap="addMedication()"></i>
+    <ul class="listview" plat-control="plat-foreach" plat-context="user.medications">
+        <li>
+            <span class="name">{{amount}}mg {{name}} {{time.hours}}:{{time.minutes}}{{time.meridiem}}</span>
+            <i class="fa fa-close form-icon form-icon-danger" plat-tap="deleteMedication(@index)"></i>
+        </li>
+    </ul>
 </div>
-<ul class="listview" plat-control="plat-foreach" plat-context="user.medications">
-    <li>
-        <span class="name">{{amount}}mg {{name}} {{time.hours}}:{{time.minutes}}{{time.meridiem}}</span>
-        <i class="fa fa-close form-icon form-icon-danger" plat-tap="deleteMedication(@index)"></i>
-    </li>
-</ul>

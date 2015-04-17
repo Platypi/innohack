@@ -1,0 +1,21 @@
+@import '../variables/variables';
+@import '../mixins/mixins';
+@import (reference) '../../../../node_modules/platypusui/platypus';
+
+& {
+    #platui > #mixins;
+
+    .main.profile {
+        padding: 0;
+        text-align: center;
+    }
+
+    .profile-container {
+        position: relative;
+        top: -@navbar-height;
+    }
+
+    .profile-icon {
+        height: 6em;
+    }
+}

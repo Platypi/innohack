@@ -1,16 +1,16 @@
-<div class="icon-container">
+<div class="profile-container">
     <img src="./assets/images/clipboard.svg" alt="" class="profile-icon">
-</div>
-<h1>Date of Birth</h1>
-<p>Older cars require more maintenance. Same goes for humans.</p>
-<div class="input-group">
-    <plat-select plat-context="years" class="input-control" plat-change="yearChosen" plat-options="{ default: { value: '0', textContent: 'Year' } }">
-    <option value="{{@context}}">{{@context}}</option>
-    </plat-select>
-    <plat-select plat-context="months" class="input-control" plat-change="monthChosen" plat-options="{ default: { value: '0', textContent: 'Month' } }">
-        <option value="{{value}}">{{name}}</option>
-    </plat-select>
-    <plat-select plat-context="days" class="input-control" plat-change="dayChosen" plat-options="{ default: { value: '0', textContent: 'Day' } }">
+    <h1>Date of Birth</h1>
+    <p>Older cars require more maintenance. Same goes for humans.</p>
+    <div class="input-group">
+        <plat-select plat-context="years" class="input-control" plat-change="yearChosen" plat-options="{ default: { value: '0', textContent: 'Year' } }">
         <option value="{{@context}}">{{@context}}</option>
-    </plat-select>
+        </plat-select>
+        <plat-select plat-context="months" class="input-control" plat-change="monthChosen" plat-options="{ default: { value: '0', textContent: 'Month' } }">
+            <option value="{{value}}">{{name}}</option>
+        </plat-select>
+        <plat-select plat-context="days" class="input-control" plat-change="dayChosen" plat-options="{ default: { value: '0', textContent: 'Day' } }">
+            <option value="{{@context}}">{{@context}}</option>
+        </plat-select>
+    </div>
 </div>
